@@ -1,22 +1,25 @@
 {
-  "name": "@nkp/--NPM_PACKAGE_NAME--",
+  "name": "@nkp/fs-crawl",
   "version": "0.0.1",
-  "description": "--PACKAGE_DESCRIPTION--",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
+  "sideEffects": false,
+  "description": "Crawl the filesystem to find files and directories",
+  "main": "cjs/index.js",
+  "module": "es/index.js",
+  "umd": "umd/index.js",
   "author": "Nick Kelly",
-  "homepage": "https://github.com/NickKelly1/--GITHUB_PACKAGE_NAME--#readme",
-  "readme": "https://github.com/NickKelly1/--GITHUB_PACKAGE_NAME--#readme",
-  "license": "SEE LICENSE IN LICENSE",
+  "homepage": "https://github.com/NickKelly1/nkp-fs-crawl#readme",
+  "readme": "https://github.com/NickKelly1/nkp-fs-crawl#readme",
+  "license": "Mozilla Public License 2.0",
   "private": false,
   "repository": {
     "type": "git",
-    "url": "--GIT_REPOSITORY--"
+    "url": "https://github.com/NickKelly1/nkp-fs-crawl"
   },
   "bugs": {
-    "url": "https://github.com/NickKelly1/--GITHUB_PACKAGE_NAME--/issues"
+    "url": "https://github.com/NickKelly1/nkp-fs-crawl/issues"
   },
   "keywords": [
+    "fs",
     "TypeScript",
     "JavaScript"
   ],
@@ -28,17 +31,20 @@
     "test": "jest -c config/jest.config.ts",
     "build": "rimraf dist && rollup -c config/rollup.config.js",
     "test:watch": "jest -c config/jest.config.ts --watch",
-    "prepublishOnly": "npm run build"
+    "publish:prepare": "cp package.json && cp LICENSE dist && cp REAMDE.md dist"
   },
   "devDependencies": {
     "@jest/types": "^26.6.2",
     "@rollup/plugin-commonjs": "^19.0.2",
     "@rollup/plugin-node-resolve": "^13.0.4",
     "@types/jest": "^26.0.24",
+    "@types/mkdirp": "^1.0.2",
+    "@types/rimraf": "^3.0.1",
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
     "eslint": "^7.31.0",
     "jest": "^27.0.6",
+    "mkdirp": "^1.0.4",
     "rimraf": "^3.0.2",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-terser": "^7.0.2",

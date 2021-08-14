@@ -1,56 +1,59 @@
-// eslint-disable-next-line no-undef
-module.exports = {
-  // "ignorePatterns": ["**/*"],
-  'ignorePatterns': ['dist/*'],
-  'overrides': [
+'use-strict';
+
+/* eslint-env node */
+
+/** @typedef {import('eslint').Linter.Config} Config */
+
+
+/** @type {Config} */
+const config = {
+  ignorePatterns: ['dist/*', 'node_modules/*',],
+  overrides: [
     {
-      'files': ['*.ts', '*.tsx', '*.js', '*.jsx'],
+      files: [
+        '*.ts',
+        '*.tsx',
+        '*.js',
+        '*.jsx',
+      ],
       'env': {
         'browser': true,
-        'es2021': true
+        'es2021': true,
+        'jest': true,
       },
       'extends': [
-        'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
-        // 'react-app',
-        // 'react-app/jest',
+        'plugin:@typescript-eslint/eslint-recommended',
+        'eslint:recommended',
       ],
       'parser': '@typescript-eslint/parser',
       'parserOptions': {
-        'ecmaVersion': 12,
-        'sourceType': 'module'
+        'ecmaVersion': 2021,
+        'sourceType': ['module', 'commonjs',],
+        'ecmaFeatures': {
+          jsx: true, // Allows for the parsing of JSX
+        },
       },
       'plugins': [
-        '@typescript-eslint'
+        '@typescript-eslint',
       ],
       rules: {
-        'indent': [
-          'error',
-          2
-        ],
-        'linebreak-style': [
-          'error',
-          'unix'
-        ],
-        'quotes': [
-          'error',
-          'single'
-        ],
-        'semi': [
-          'error',
-          'always'
-        ]
+        'indent': ['error', 2, ],
+        'linebreak-style': ['error', 'unix',],
+        'quotes': ['error', 'single',],
+        'semi': ['error', 'always',],
+        'comma-dangle': ['error', {
+          'functions': 'only-multiline',
+          'objects': 'always',
+          'arrays': 'always',
+        },],
+        'no-unused-vars': ['off',], // favour typescript's no-unused-vars
+        'no-trailing-spaces': ['error', 'always',],
+        '@typescript-eslint/ban-ts-comment': ['off',],
+        '@typescript-eslint/no-non-null-assertion': ['off',],
       },
     },
-    // {
-    //   "files": ["*.ts", "*.tsx"],
-    //   "extends": [],
-    //   "rules": {}
-    // },
-    // {
-    //   "files": ["*.js", "*.jsx"],
-    //   "extends": [],
-    //   "rules": {}
-    // }
   ],
 };
+
+module.exports = config;
