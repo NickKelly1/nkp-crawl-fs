@@ -30,7 +30,7 @@
     "test": "jest -c config/jest.config.ts",
     "build": "rimraf dist && rollup -c config/rollup.config.js",
     "test:watch": "jest -c config/jest.config.ts --watch",
-    "publish:prepare": "cp package.json dist && cp LICENSE dist && cp REAMDE.md dist",
+    "publish:prepare": "cp package.json dist && cp LICENSE dist && cp README.md dist",
     "lint": "eslint . --ext '*/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "eslint . --ext '*/**/*.{js,jsx,ts,tsx}' --fix"
   },

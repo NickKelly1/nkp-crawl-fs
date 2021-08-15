@@ -9,6 +9,7 @@ Zero dependency filesystem utilities for recursively creating and reading file s
 `fsn.parse(inputStructure)` takes an input file structure then parses and normalizes it to work with the package.
 
 It converts files, directories and symlinks to a tree of objects of type:
+
 - **MountNode**: represents the input location
 - **FileNode**: represents a file with optional content
 - **DirectoryNode**: represents a directory with children, either `FileNode`, `DirectoryNode` or `SymlinkNode`
