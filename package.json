@@ -1,11 +1,10 @@
 {
-  "name": "@nkp/fs-crawl",
+  "name": "@nkp/fsn",
   "version": "0.0.1",
   "sideEffects": false,
-  "description": "Crawl the filesystem to find files and directories",
+  "description": "Filesystem utilities for recursively creating and reading files",
   "main": "cjs/index.js",
   "module": "es/index.js",
-  "umd": "umd/index.js",
   "author": "Nick Kelly",
   "homepage": "https://github.com/NickKelly1/nkp-fs-crawl#readme",
   "readme": "https://github.com/NickKelly1/nkp-fs-crawl#readme",

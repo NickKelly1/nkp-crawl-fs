@@ -1,5 +1,8 @@
 {
   "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "target": "ES2019"
+  },
   "include": [
     "../*.(spec|test).ts",
     "../__tests__",

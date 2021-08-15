@@ -22,12 +22,6 @@ export default [
         exports: 'named',
         sourcemap: true,
       },
-      {
-        name: '$nkp.fsCrawl',
-        file: `dist/${packageJson.umd}`,
-        format: 'umd',
-        sourcemap: true,
-      },
     ],
     plugins: [
       peerDepsExternal(),
