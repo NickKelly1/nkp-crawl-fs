@@ -1,7 +1,7 @@
-import { DirectoryNode } from "./directory";
-import { ExoticNode } from "./exotic";
-import { FileNode } from "./file";
-import { SymlinkNode } from "./symlink";
+import { DirectoryNode } from './directory';
+import { ExoticNode } from './exotic';
+import { FileNode } from './file';
+import { SymlinkNode } from './symlink';
 
 // all
 export type FsNode =

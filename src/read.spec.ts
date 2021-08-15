@@ -21,7 +21,7 @@ async function setup(): Promise<void> {
     return fsp.writeFile(
       abs,
       crypto.randomBytes(56),
-      { encoding: 'binary', flag: 'wx' },
+      { encoding: 'binary', flag: 'wx', },
     );
   }
   function mkLink(abs: string, link: string) {
@@ -52,7 +52,7 @@ describe('read', () => {
   it('should work', async () => {
     await setup();
     const result = await read(dist);
-    const flat = Array.from(flatten(result))
+    const flat = Array.from(flatten(result));
 
     function find(name: string): undefined | FsNode {
       return flat.find((node) => node.name === name);

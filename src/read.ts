@@ -37,7 +37,7 @@ export async function read(rootAbsolutePath: string): Promise<FsNode> {
     const node = toDirectory({ absolutePath: rootAbsolutePath, });
     visited.set(node.absolutePath, node);
     node.children = await fsp
-      .readdir(node.absolutePath, { withFileTypes: true })
+      .readdir(node.absolutePath, { withFileTypes: true, })
       .then((dirents) => Promise.all(dirents.map(dirent => _handleNode(
         visited,
         node,
@@ -78,7 +78,6 @@ async function _handleNode(
   else return _handleExotic(visited, root, parent, name, stats);
 }
 
-let c = 0;
 /**
  * Handle a directory
  *
@@ -97,8 +96,7 @@ async function _handleDirectory(
 ): Promise<FsNode> {
   const absolutePath = path.join(parent.absolutePath, name);
   if (visited.has(absolutePath)) return visited.get(absolutePath)!;
-  const node = toDirectory({ root, parent, name, })
-  let _c = c += 1;
+  const node = toDirectory({ root, parent, name, });
   node.children = await fsp
     .readdir(node.absolutePath, { withFileTypes: true, })
     .then(dirents => Promise.all(dirents.map(async (dirent) => _handleNode(
@@ -107,7 +105,7 @@ async function _handleDirectory(
       node,
       dirent.name,
       dirent,
-    ))))
+    ))));
   return node;
 }
 

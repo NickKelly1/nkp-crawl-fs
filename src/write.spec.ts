@@ -1,7 +1,7 @@
 import crypto from 'crypto';
-import _rimraf from "rimraf";
+import _rimraf from 'rimraf';
 import path from 'path';
-import { dirTestDist } from "./dir";
+import { dirTestDist } from './dir';
 import mkdirp from 'mkdirp';
 import { promisify } from 'util';
 import fsp from 'fs/promises';
@@ -16,23 +16,23 @@ const dist = dirTestDist();
 const writeFn: FileWrite = () => ({
   content: crypto.randomBytes(8),
   encoding: 'binary',
-})
+});
 
 const structure = parse([dist, [
   ['dir1', [
     ['dir2', [
-      ['file', writeFn],
-      ['link', { link: './file'}],
-    ]],
-    ['file', writeFn],
-    ['link1', { link: './file'}],
-    ['link2', { link: './dir2/file'}],
-  ]],
-  ['file', writeFn],
-  ['link1', { link: './file'}],
-  ['link2', { link: './dir1/file'}],
-  ['link3', { link: './dir1/dir2/file'}],
-]]);
+      ['file', writeFn,],
+      ['link', { link: './file',},],
+    ],],
+    ['file', writeFn,],
+    ['link1', { link: './file',},],
+    ['link2', { link: './dir2/file',},],
+  ],],
+  ['file', writeFn,],
+  ['link1', { link: './file',},],
+  ['link2', { link: './dir1/file',},],
+  ['link3', { link: './dir1/dir2/file',},],
+],]);
 
 describe('write', () => {
   beforeEach(() => rimraf(dist).then(() => mkdirp(dist)));

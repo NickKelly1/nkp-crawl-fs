@@ -1,6 +1,6 @@
-import { MountNode } from "./nodes/mount";
-import { FsNode } from "./nodes/node";
-import { MountNodeType, NodeType } from "./nodes/type";
+import { MountNode } from './nodes/mount';
+import { FsNode } from './nodes/node';
+import { MountNodeType, NodeType } from './nodes/type';
 
 /**
  * Flatten a structure

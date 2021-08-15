@@ -1,5 +1,5 @@
 import { FsNode } from './node';
-import { MountNodeType } from "./type";
+import { MountNodeType } from './type';
 
 // directory
 export interface MountNode {
@@ -12,7 +12,7 @@ export interface MountPayload {
   absolutePath: string;
 }
 
-export function toMount(payload: MountPayload) {
+export function toMount(payload: MountPayload): MountNode {
   const {
     absolutePath,
   } = payload;
@@ -21,7 +21,7 @@ export function toMount(payload: MountPayload) {
     type: MountNodeType,
     absolutePath,
     children: [],
-  }
+  };
 
   return node;
 }

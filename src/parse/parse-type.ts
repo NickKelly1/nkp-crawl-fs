@@ -1,6 +1,6 @@
-import { InputDirectory, InputNormalizedDirectory } from "./parse-direcetory";
-import { InputFile, InputNormalizedFile } from "./parse-file";
-import { InputNormalizedSymlink, InputSymlink } from "./parse-symlink";
+import { InputDirectory, InputNormalizedDirectory } from './parse-direcetory';
+import { InputFile, InputNormalizedFile } from './parse-file';
+import { InputNormalizedSymlink, InputSymlink } from './parse-symlink';
 
 export enum InputType {
   File = 'Input:FIle',

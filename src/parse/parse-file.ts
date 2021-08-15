@@ -1,7 +1,7 @@
-import { none, Some, Option, } from "../options";
-import { OrPromise } from "../types";
-import { FileWrite } from "../nodes/file";
-import { InputType } from "./parse-type";
+import { none, Some, Maybe } from '../maybe';
+import { OrPromise } from '../types';
+import { FileWrite } from '../nodes/file';
+import { InputType } from './parse-type';
 
 export type InputFileWriteObject = { content: string | Buffer, encoding?: BufferEncoding };
 export type InputFileWriteFn = () => OrPromise<InputFileWriteObject>;
@@ -13,12 +13,12 @@ export type InputFile = InputFileArray | InputFileObject;
 
 export type InputNormalizedFile = { type: InputType.File, name: string, write: FileWrite }
 
-export function parseFile(unknown: unknown): Option<InputNormalizedFile> {
+export function parseFile(unknown: unknown): Maybe<InputNormalizedFile> {
   if (!unknown) return none;
   const _unknown = unknown as InputFile;
   if (Array.isArray(_unknown)) {
     if (_unknown.length !== 2) return none;
-    const [name, options] = _unknown;
+    const [name, options,] = _unknown;
     if (typeof name !== 'string') return none;
     return parseFileWriteFn(options).map((write): InputNormalizedFile => ({
       type: InputType.File,
@@ -38,33 +38,33 @@ export function parseFile(unknown: unknown): Option<InputNormalizedFile> {
   return none;
 }
 
-function parseFileWriteFn(options: unknown): Option<FileWrite> {
+function parseFileWriteFn(options: unknown): Maybe<FileWrite> {
   if (!options) return none;
   switch (typeof options) {
+  case 'string':
+    return new Some(() => ({ content: options, encoding: 'utf-8', }));
+
+  case 'function':
+    return new Some(async () => {
+      const { content, encoding, } = await (options as InputFileWriteFn)();
+      return { content, encoding: encoding ?? 'utf-8', };
+    });
+
+  case 'object': {
+    const { write, encoding: _encoding, } = options as InputFileOptions;
+
+    switch (typeof write) {
     case 'string':
-      return new Some(() => ({ content: options, encoding: 'utf-8', }));
+      return new Some(() => ({ content: write, encoding: _encoding ?? 'utf-8', }));
 
-    case 'function':
+    case 'function': {
       return new Some(async () => {
-        const { content, encoding } = await (options as InputFileWriteFn)();
-        return { content, encoding: encoding ?? 'utf-8' };
+        const { content, encoding, } = await write();
+        return { content, encoding: encoding ?? _encoding ?? 'utf-8', };
       });
-
-    case 'object': {
-      const { write, encoding: _encoding } = options as InputFileOptions;
-
-      switch (typeof write) {
-        case 'string':
-          return new Some(() => ({ content: write, encoding: _encoding ?? 'utf-8', }));
-
-        case 'function': {
-          return new Some(async () => {
-            const { content, encoding } = await write();
-            return { content, encoding: encoding ?? _encoding ?? 'utf-8' };
-          });
-        }
-      }
     }
+    }
+  }
   }
 
   return none;

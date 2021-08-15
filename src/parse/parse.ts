@@ -1,16 +1,14 @@
-import path from 'path';
-import { MountNodeType } from '../nodes';
 import { AncestorNode } from '../nodes/ancestor';
-import { DirectoryNode, toDirectory } from "../nodes/directory";
-import { toFile } from "../nodes/file";
+import { toDirectory } from '../nodes/directory';
+import { toFile } from '../nodes/file';
 import { MountNode, toMount } from '../nodes/mount';
-import { FsNode } from "../nodes/node";
-import { toSymlink } from "../nodes/symlink";
-import { parseDirectory, InputNormalizedDirectory } from "./parse-direcetory";
-import { parseFile, InputNormalizedFile } from "./parse-file";
-import { InputMount, InputNormalizedMount, parseMount } from "./parse-mount";
-import { parseSymlink, InputNormalizedSymlink } from "./parse-symlink";
-import { ParseError, InputNormalizedAtom } from "./parse-type";
+import { FsNode } from '../nodes/node';
+import { toSymlink } from '../nodes/symlink';
+import { parseDirectory, InputNormalizedDirectory } from './parse-direcetory';
+import { parseFile, InputNormalizedFile } from './parse-file';
+import { InputMount, InputNormalizedMount, parseMount } from './parse-mount';
+import { parseSymlink, InputNormalizedSymlink } from './parse-symlink';
+import { ParseError, InputNormalizedAtom } from './parse-type';
 
 /**
  * Parse the input into a symbolic representation of a filesystem structure
@@ -19,8 +17,8 @@ import { ParseError, InputNormalizedAtom } from "./parse-type";
  * @returns
  */
 export function parse(input: InputMount): MountNode {
-  const mount = parseMount(input).getValue();
-  if (!mount) throw new ParseError(`Failed to parse first node`);
+  const mount = parseMount(input).value;
+  if (!mount) throw new ParseError('Failed to parse first node');
   const node = _handleMount(mount);
   return node;
 }
@@ -28,8 +26,8 @@ export function parse(input: InputMount): MountNode {
 function _handleMount(
   normalized: InputNormalizedMount,
 ): MountNode {
-  const { absolutePath, children } = normalized;
-  const node = toMount({ absolutePath });
+  const { absolutePath, children, } = normalized;
+  const node = toMount({ absolutePath, });
   node.children = children.map((child) => _handleUnknown('', node, node, child));
   return node;
 }
@@ -43,13 +41,13 @@ function _handleUnknown(
 ): FsNode {
   let value: undefined | InputNormalizedAtom;
 
-  value = parseDirectory(unknown).getValue();
+  value = parseDirectory(unknown).value;
   if (value) return _handleDirectory(context, root, parent, value);
 
-  value = parseFile(unknown).getValue();
+  value = parseFile(unknown).value;
   if (value) return _handleFile(root, parent, value);
 
-  value = parseSymlink(unknown).getValue();
+  value = parseSymlink(unknown).value;
   if (value) return _handleSymlink(root, parent, value);
 
   throw new ParseError(`Faile to parse ${context}`);
@@ -72,7 +70,7 @@ function _handleDirectory(
   parent: AncestorNode,
   normalized: InputNormalizedDirectory,
 ): FsNode {
-  const { name } = normalized;
+  const { name, } = normalized;
   const node = toDirectory({ name, parent, root, });
   node.children = normalized
     .children

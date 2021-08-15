@@ -1,5 +1,4 @@
-import { AncestorNode } from "./ancestor";
-import { DirectoryNode } from "./directory";
+import { AncestorNode } from './ancestor';
 
 // base
 export interface Base {

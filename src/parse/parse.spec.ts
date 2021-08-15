@@ -1,13 +1,13 @@
 import path from 'path';
-import { dirTestDist } from "../dir";
-import { DirectoryNode } from "../nodes/directory";
-import { FileNode } from "../nodes/file";
+import { dirTestDist } from '../dir';
+import { DirectoryNode } from '../nodes/directory';
+import { FileNode } from '../nodes/file';
 import { MountNode } from '../nodes/mount';
-import { FsNode } from "../nodes/node";
-import { SymlinkNode } from "../nodes/symlink";
-import { MountNodeType, NodeType} from "../nodes/type";
-import { parse } from "./parse";
-import { InputChild, InputType } from "./parse-type";
+import { FsNode } from '../nodes/node';
+import { SymlinkNode } from '../nodes/symlink';
+import { MountNodeType, NodeType} from '../nodes/type';
+import { parse } from './parse';
+import { InputChild } from './parse-type';
 
 const dist = dirTestDist();
 
@@ -15,7 +15,7 @@ describe('parse', () => {
   it('should work', () => {
     const root = parse([dist, [
       ['dir1', [],],
-    ]]);
+    ],]);
     const r1 = root as MountNode;
     expect(r1.absolutePath).toBe(dist);
     expect(r1.type).toBe(MountNodeType);
@@ -25,27 +25,27 @@ describe('parse', () => {
 
   it('should parse large structures', async () => {
     const directoryContents: InputChild[] = [
-      ['1_file', 'file 1 content'],
-      ['2_file', { write: 'file 2 content' }],
-      ['3_file', { write: 'file 3 content', encoding: 'binary' }],
-      ['4_file', { write: () => ({ content: 'file 4 content' }), encoding: 'binary' }],
-      ['5_file', { write: () => ({ content: 'file 5 content', encoding: 'hex' }), }],
-      ['6_file', { write: () => ({ content: 'file 6 content', encoding: 'latin1' }), encoding: 'ucs2' }],
-      ['7_link', { link: './1_file' }],
+      ['1_file', 'file 1 content',],
+      ['2_file', { write: 'file 2 content', },],
+      ['3_file', { write: 'file 3 content', encoding: 'binary', },],
+      ['4_file', { write: () => ({ content: 'file 4 content', }), encoding: 'binary', },],
+      ['5_file', { write: () => ({ content: 'file 5 content', encoding: 'hex', }), },],
+      ['6_file', { write: () => ({ content: 'file 6 content', encoding: 'latin1', }), encoding: 'ucs2', },],
+      ['7_link', { link: './1_file', },],
       { name: '8_link', link: './2_file', },
-      ['9_directory_nested_1', []],
-      { name: '10_directory_nested_2', children: []},
+      ['9_directory_nested_1', [],],
+      { name: '10_directory_nested_2', children: [],},
     ];
 
     const structure = parse([dist, [
       ...directoryContents,
       ['11_directory', [
         ...directoryContents,
-      ]],
+      ],],
       { name: '12_directory', children: [
         ...directoryContents,
-      ]},
-    ]]);
+      ],},
+    ],]);
 
     await testChildren(dist, '.', structure.children);
 

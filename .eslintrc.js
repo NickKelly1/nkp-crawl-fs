@@ -17,9 +17,10 @@ const config = {
         '*.jsx',
       ],
       'env': {
-        'browser': true,
+        'browser': false,
         'es2021': true,
         'jest': true,
+        'node': true,
       },
       'extends': [
         'plugin:@typescript-eslint/recommended',
@@ -48,9 +49,12 @@ const config = {
           'arrays': 'always',
         },],
         'no-unused-vars': ['off',], // favour typescript's no-unused-vars
-        'no-trailing-spaces': ['error', 'always',],
+        'no-undef': ['off',], // favour typescript
+        'no-redeclare': ['off',], // favour typescript
+        'no-trailing-spaces': ['error',],
         '@typescript-eslint/ban-ts-comment': ['off',],
         '@typescript-eslint/no-non-null-assertion': ['off',],
+        '@typescript-eslint/no-this-alias': ['off',],
       },
     },
   ],

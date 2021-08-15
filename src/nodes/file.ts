@@ -1,8 +1,8 @@
 import path from 'path';
 import { OrPromise } from '../types';
 import { AncestorNode } from './ancestor';
-import { Base } from "./base";
-import { NodeType } from "./type";
+import { Base } from './base';
+import { NodeType } from './type';
 
 // file
 export interface FileWritePayload {
@@ -77,7 +77,7 @@ export function toFile(payload: FilePayload): FileNode {
     relativePath,
     write: write ?? null,
     override,
-  }
+  };
 
   return node;
 }

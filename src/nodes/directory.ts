@@ -1,8 +1,8 @@
 import path from 'path';
 import { AncestorNode } from './ancestor';
-import { Base } from "./base";
+import { Base } from './base';
 import { FsNode } from './node';
-import { NodeType } from "./type";
+import { NodeType } from './type';
 
 // directory
 export interface DirectoryNode extends Base {
@@ -11,6 +11,7 @@ export interface DirectoryNode extends Base {
   children: FsNode[];
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface DirectoryPayloadBase {
   //
 }
@@ -39,7 +40,7 @@ function isRoot(payload: DirectoryPayload): payload is DirectoryPayloadRoot {
   return payload.name === undefined;
 }
 
-export function toDirectory(payload: DirectoryPayload) {
+export function toDirectory(payload: DirectoryPayload): DirectoryNode {
   const {
     root,
     parent,
@@ -67,7 +68,7 @@ export function toDirectory(payload: DirectoryPayload) {
     absolutePath,
     relativePath,
     children: [],
-  }
+  };
 
   return node;
 }

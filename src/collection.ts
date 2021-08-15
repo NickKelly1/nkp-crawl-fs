@@ -1,4 +1,4 @@
-import { None, Option, Some } from "./options";
+import { None, Maybe, Some } from './maybe';
 
 /**
  * Iterable collection
@@ -17,7 +17,7 @@ export class Collection<T> implements Iterable<T> {
    *
    * @param eachFn
    */
-  each(eachFn: (item: T) => unknown) {
+  each(eachFn: (item: T) => unknown): void {
     for (const item of this.root) {
       eachFn(item);
     }
@@ -67,7 +67,7 @@ export class Collection<T> implements Iterable<T> {
    *
    * @returns
    */
-  first(): Option<T> {
+  first(): Maybe<T> {
     let hasValue = false;
     let value: T | undefined;
     for (const item of this) {
@@ -87,7 +87,7 @@ export class Collection<T> implements Iterable<T> {
    * @param index
    * @returns
    */
-  item(index: number): Option<T> {
+  item(index: number): Maybe<T> {
     let i = 0;
     if (i >= 0) {
       // seek for i

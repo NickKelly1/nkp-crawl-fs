@@ -1,8 +1,8 @@
 import { Stats, Dirent } from 'fs';
 import path from 'path';
 import { AncestorNode } from './ancestor';
-import { Base } from "./base";
-import { NodeType } from "./type";
+import { Base } from './base';
+import { NodeType } from './type';
 
 export enum ExoticKind {
   Socket = 'Exotic:Socket',
@@ -81,7 +81,7 @@ export function toExotic(payload: ExoticPayload): ExoticNode {
     parent: parent ?? null,
     absolutePath,
     relativePath,
-  }
+  };
 
   return node;
 }

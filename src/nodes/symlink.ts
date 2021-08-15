@@ -1,7 +1,7 @@
 import path from 'path';
 import { AncestorNode } from './ancestor';
-import { Base } from "./base";
-import { NodeType } from "./type";
+import { Base } from './base';
+import { NodeType } from './type';
 
 // symlink
 export interface SymlinkNode extends Base {
@@ -70,7 +70,7 @@ export function toSymlink(payload: SymlinkPayload): SymlinkNode {
     relativePath,
     link,
     linkValue: linkValue ?? null,
-  }
+  };
 
   return symlink;
 }
