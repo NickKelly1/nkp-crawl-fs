@@ -1,6 +1,6 @@
 # @nkp/fsn
 
-Filesystem utilities for recursively creating and reading file structures.
+Zero dependency filesystem utilities for recursively creating and reading file structures.
 
 ## Usage
 
@@ -26,7 +26,10 @@ const fileStructure = fsn.parse(['/absolute/path/to/mount/point', [
   ['file_4', { write: async () => ({ content: 'file 3 content' }), encoding: 'utf-8' }],
   ['file_4', { write: async () => ({ content: crypto.randomBytes(56), encoding: 'binary' }), }],
   ['file_4', { write: async () => ({ content: crypto.randomBytes(56), encoding: 'binary' }), }],
-  { name: 'file_4', write: async () => ({ content: crypto.randomBytes(56), encoding: 'binary' }) },
+  {
+    name: 'file_4',
+    write: async () => ({ content: crypto.randomBytes(56), encoding: 'binary' }),
+  },
 
   ['directory_1', []],
   { name: 'directory_1', children: [] },
