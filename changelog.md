@@ -2,9 +2,18 @@
 
 ## 0.0.7 - 2021-08-15
 
+### Added
+
+- Use `@nkp/maybe` instead of own implementation of `Maybe`
+
 ### Changed
 
 - Changed package name from `@nkp/fsn` to `@nkp/fs`
+
+### Removed
+
+- Own implementation of `Maybe`
+- `Collection`
 
 ## 0.0.6 - 2021-08-15
 

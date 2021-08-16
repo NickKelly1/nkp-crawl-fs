@@ -1,4 +1,4 @@
-import { none, Some, Maybe } from '../maybe';
+import { Maybe } from '@nkp/maybe';
 import { InputChild } from './parse-type';
 
 export type InputMountArray = [ absolutePath: string, children: InputChild[] ];
@@ -13,23 +13,23 @@ export type InputNormalizedMount = { absolutePath: string, children: unknown[] }
  * Only call on input object
  */
 export function parseMount(unknown: unknown): Maybe<InputNormalizedMount> {
-  if (!unknown) return none;
+  if (!unknown) return Maybe.none;
   const _unknown = unknown as InputMount;
 
   if (Array.isArray(_unknown)) {
-    if (_unknown.length !== 2) return none;
+    if (_unknown.length !== 2) return Maybe.none;
     const [absolutePath, children,] = _unknown;
-    if (typeof absolutePath !== 'string') return none;
-    if (!Array.isArray(children)) return none;
-    return new Some({ absolutePath, children, });
+    if (typeof absolutePath !== 'string') return Maybe.none;
+    if (!Array.isArray(children)) return Maybe.none;
+    return Maybe.some({ absolutePath, children, });
   }
 
   else if (typeof _unknown === 'object') {
     const { absolutePath, children, } = _unknown;
-    if (typeof absolutePath !== 'string') return none;
-    if (!Array.isArray(children)) return none;
-    return new Some({ absolutePath, children, });
+    if (typeof absolutePath !== 'string') return Maybe.none;
+    if (!Array.isArray(children)) return Maybe.none;
+    return Maybe.some({ absolutePath, children, });
   }
 
-  return none;
+  return Maybe.none;
 }

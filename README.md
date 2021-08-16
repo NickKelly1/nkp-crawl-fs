@@ -4,7 +4,7 @@
 [![Node.js Package](https://github.com/NickKelly1/nkp-fs/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/NickKelly1/nkp-fs/actions/workflows/npm-publish.yml)
 ![Known Vulnerabilities](https://snyk.io/test/github/NickKelly1/nkp-fs/badge.svg)
 
-Zero dependency filesystem utilities for recursively creating and reading file structures.
+Filesystem utilities for recursively creating and reading file structures.
 
 ## Usage
 
