@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.6 - 2021-08-15
+
+### Changed
+
+- Updated readme
+
 ## 0.0.5 - 2021-08-15
 
 ### Changed
