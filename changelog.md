@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.7 - 2021-08-15
+
+### Changed
+
+- Changed package name from `@nkp/fsn` to `@nkp/fs`
+
 ## 0.0.6 - 2021-08-15
 
 ### Changed

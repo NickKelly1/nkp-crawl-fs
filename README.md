@@ -1,8 +1,8 @@
-# @nkp/fsn
+# @nkp/fs
 
-[![npm version](https://badge.fury.io/js/%40nkp%2Ffsn.svg)](https://www.npmjs.com/package/@nkp/fsn)
-[![Node.js Package](https://github.com/NickKelly1/nkp-fsn/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/NickKelly1/nkp-fsn/actions/workflows/npm-publish.yml)
-![Known Vulnerabilities](https://snyk.io/test/github/NickKelly1/nkp-fsn/badge.svg)
+[![npm version](https://badge.fury.io/js/%40nkp%2Ffs.svg)](https://www.npmjs.com/package/@nkp/fs)
+[![Node.js Package](https://github.com/NickKelly1/nkp-fs/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/NickKelly1/nkp-fs/actions/workflows/npm-publish.yml)
+![Known Vulnerabilities](https://snyk.io/test/github/NickKelly1/nkp-fs/badge.svg)
 
 Zero dependency filesystem utilities for recursively creating and reading file structures.
 
@@ -20,7 +20,7 @@ It converts files, directories and symlinks to a tree of objects of type:
 - **SymlinkNode**: represents a symbolic link
 
 ```ts
-import * as fsn from '@nkp/fsn';
+import * as fsn from '@nkp/fs';
 import crypto from 'crypto';
 
 // you have some flexibility in how you write the file structure
@@ -83,7 +83,7 @@ const fileStructure = fsn.parse(['/absolute/path/to/mount/point', [
 Recursively reads from the file system into a structure of linked `FileNode`, `DirectoryNode`, `SymlinkNode` and `ExoticNode`.
 
 ```ts
-import * as afsn from '@nkp/fsn';
+import * as afsn from '@nkp/fs';
 const fileStructure = await fsn.read('/absolute/path/to/read/point');
 
 // fileStructure: [Node:Directory] {
@@ -117,7 +117,7 @@ const fileStructure = await fsn.read('/absolute/path/to/read/point');
 Recursively write a file structure to the file system.
 
 ```ts
-import * as fsn from '@nkp/fsn';
+import * as fsn from '@nkp/fs';
 
 const structure = fsn.parse(/* some parseable structure */);
 await fsn.write(structure);
@@ -128,7 +128,7 @@ await fsn.write(structure);
 Flatten a nested file structure into an array of nodes
 
 ```ts
-import * as fsn from '@nkp/fsn';
+import * as fsn from '@nkp/fs';
 
 const structure = fsn.parse(/* some parseable structure */);
 const flat: (FileNode | DirectoryNode | SymlinkNode | ExoticNode)[] = fsn.flatten(structure);

@@ -1,21 +1,21 @@
 {
-  "name": "@nkp/fsn",
-  "version": "0.0.6",
+  "name": "@nkp/fs",
+  "version": "0.0.7",
   "sideEffects": false,
   "description": "Filesystem utilities for recursively creating and reading files",
   "main": "cjs/index.js",
   "module": "es/index.js",
   "author": "Nick Kelly",
-  "homepage": "https://github.com/NickKelly1/nkp-fsn#readme",
-  "readme": "https://github.com/NickKelly1/nkp-fsn#readme",
+  "homepage": "https://github.com/NickKelly1/nkp-fs#readme",
+  "readme": "https://github.com/NickKelly1/nkp-fs#readme",
   "license": "Mozilla Public License 2.0",
   "private": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/NickKelly1/nkp-fsn"
+    "url": "https://github.com/NickKelly1/nkp-fs"
   },
   "bugs": {
-    "url": "https://github.com/NickKelly1/nkp-fsn/issues"
+    "url": "https://github.com/NickKelly1/nkp-fs/issues"
   },
   "keywords": [
     "fs",
