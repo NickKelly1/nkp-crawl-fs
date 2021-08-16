@@ -1,6 +1,6 @@
 {
   "name": "@nkp/fsn",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "sideEffects": false,
   "description": "Filesystem utilities for recursively creating and reading files",
   "main": "cjs/index.js",

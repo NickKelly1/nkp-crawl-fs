@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.5 - 2021-08-15
+
+### Changed
+
+- Fixed publishing configuration
+
 ## 0.0.3 - 2021-08-15
 
 ### Changed
