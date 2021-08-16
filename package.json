@@ -1,6 +1,6 @@
 {
   "name": "@nkp/fsn",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "sideEffects": false,
   "description": "Filesystem utilities for recursively creating and reading files",
   "main": "cjs/index.js",
@@ -21,10 +21,6 @@
     "fs",
     "TypeScript",
     "JavaScript"
-  ],
-  "files": [
-    "dist",
-    "LICENSE"
   ],
   "scripts": {
     "test": "jest -c config/jest.config.ts",
