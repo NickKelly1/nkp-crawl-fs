@@ -19,7 +19,7 @@
     "module": "ESNext",
     "declaration": true,
     "declarationMap": false,
-    "sourceMap": true,
+    "sourceMap": false,
     "outDir": "dist",
     "resolveJsonModule": true,
     "allowJs": true,

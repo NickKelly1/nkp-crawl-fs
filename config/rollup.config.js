@@ -16,14 +16,14 @@ const config = {
       file: `dist/${packageJson.main}`,
       interop: 'auto',
       format: 'cjs',
-      sourcemap: true,
+      sourcemap: false,
     },
     {
       file: `dist/${packageJson.module}`,
       interop: 'auto',
       format: 'es',
       exports: 'named',
-      sourcemap: true,
+      sourcemap: false,
     },
   ],
   plugins: [
