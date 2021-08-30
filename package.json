@@ -1,6 +1,6 @@
 {
   "name": "@nkp/fs",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "sideEffects": false,
   "description": "Filesystem utilities for recursively creating and reading files",
   "main": "cjs/index.js",
