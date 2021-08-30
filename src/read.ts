@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs';
-import fsp from 'fs/promises';
+import { promises as fsp } from 'fs';
 import { toDirectory } from './nodes/directory';
 import { toSymlink } from './nodes/symlink';
 import { FsNode } from './nodes/node';

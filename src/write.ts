@@ -1,5 +1,4 @@
-import fsp from 'fs/promises';
-import fs from 'fs';
+import fs, { promises as fsp } from 'fs';
 import { DirectoryNode } from './nodes/directory';
 import { FileNode } from './nodes/file';
 import { FsNode } from './nodes/node';

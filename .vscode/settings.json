@@ -1,4 +1,5 @@
 {
+  "window.title": "@nkp/fs",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },

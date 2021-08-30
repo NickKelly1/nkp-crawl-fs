@@ -1,7 +1,7 @@
 # @nkp/fs
 
 [![npm version](https://badge.fury.io/js/%40nkp%2Ffs.svg)](https://www.npmjs.com/package/@nkp/fs)
-[![Node.js Package](https://github.com/NickKelly1/nkp-fs/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/NickKelly1/nkp-fs/actions/workflows/npm-publish.yml)
+[![Node.js Package](https://github.com/NickKelly1/nkp-fs/actions/workflows/release.yml/badge.svg)](https://github.com/NickKelly1/nkp-fs/actions/workflows/release.yml)
 ![Known Vulnerabilities](https://snyk.io/test/github/NickKelly1/nkp-fs/badge.svg)
 
 Filesystem utilities for recursively creating and reading file structures.

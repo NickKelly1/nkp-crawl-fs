@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.0.8 - 2021-08-15
+
+### Changed
+
+- Updated configuration
+- Updated readme.md
+- Updated dependencies
+
 ## 0.0.7 - 2021-08-15
 
 ### Added

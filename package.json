@@ -24,36 +24,39 @@
   ],
   "scripts": {
     "test": "jest -c config/jest.config.ts",
-    "build": "rimraf dist && rollup -c config/rollup.config.js",
+    "test:coverage": "jest -c config/jest.config.ts --coverage",
     "test:watch": "jest -c config/jest.config.ts --watch",
+    "build": "rimraf dist && rollup -c config/rollup.config.js",
     "publish:prepare": "cp package.json dist && cp LICENSE dist && cp README.md dist",
     "lint": "eslint . --ext '*/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "eslint . --ext '*/**/*.{js,jsx,ts,tsx}' --fix",
     "upgrade": "npm-check --update"
   },
   "devDependencies": {
-    "@jest/types": "^26.6.2",
-    "@rollup/plugin-commonjs": "^19.0.2",
+    "@jest/types": "^27.1.0",
+    "@rollup/plugin-commonjs": "^20.0.0",
     "@rollup/plugin-node-resolve": "^13.0.4",
-    "@types/jest": "^26.0.24",
+    "@types/jest": "^27.0.1",
     "@types/mkdirp": "^1.0.2",
-    "@types/rimraf": "^3.0.1",
-    "@typescript-eslint/eslint-plugin": "^4.29.1",
-    "@typescript-eslint/parser": "^4.29.1",
+    "@types/rimraf": "^3.0.2",
+    "@types/rollup-plugin-peer-deps-external": "^2.2.1",
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "@typescript-eslint/parser": "^4.29.3",
     "eslint": "^7.32.0",
-    "jest": "^27.0.6",
+    "jest": "^27.1.0",
     "mkdirp": "^1.0.4",
     "npm-check": "^5.9.2",
     "rimraf": "^3.0.2",
-    "rollup": "^2.56.2",
+    "rollup": "^2.56.3",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.30.0",
-    "ts-jest": "^27.0.4",
-    "ts-node": "^10.2.0",
-    "typescript": "^4.3.5"
+    "ts-jest": "^27.0.5",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.2"
   },
   "dependencies": {
-    "@nkp/maybe": "^0.0.5"
+    "@nkp/maybe": "0.0.20",
+    "@rollup/plugin-json": "^4.1.0"
   }
 }
